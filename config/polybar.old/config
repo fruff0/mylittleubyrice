@@ -1,0 +1,146 @@
+[colors]
+solarizedBack = #073642
+solarizedFore = #93a1a1
+white = #fff
+black = #111
+background = #282A2E
+background-alt = #373B41
+foreground = #C5C8C6
+primary = #F0C674
+secondary = #8ABEB7
+alert = #A54242
+disabled = #707880
+
+
+
+# [bar/dummybar]
+# background = #aa00
+# override-redirect = true
+# wm-stack = i3
+
+[bar/mybar]
+font-0 = "Consolas:size=10;1"
+background = ${colors.solarizedBack}
+foreground = ${colors.white}
+width = 93.25%
+height = 50px
+offset-x = 3.37%
+offset-y = 8px
+override-redirect = true
+wm-stack = i3
+radius = 10.0
+modules-left = powermenu mpd
+modules-right = volume wireless-network wired-network memory cpu battery clock
+module-margin-left = 0
+module-margin-right = 3
+
+
+[module/date]
+label-padding = 3px
+type = internal/date
+date = Today is %d/%m/%Y
+
+[module/clock]
+type = internal/date
+label-padding = 3px
+interval = 2
+date = %%{F#999}%Y-%m-%d%%{F-}  %%{F#fff}%H:%M%%{F-}
+
+[module/battery]
+type = internal/battery
+full-at = 98
+# format-background = ${colors.solarizedFore}
+# format-foreground = ${colors.solarizedBack}
+
+[module/cpu]
+type = internal/cpu
+interval = 0.5
+format = <label> <ramp-coreload>
+label = CPU
+# padding-right = 10px
+
+ramp-coreload-0 = ▁
+ramp-coreload-0-font = 2
+ramp-coreload-0-foreground = #aaff77
+ramp-coreload-1 = ▂
+ramp-coreload-1-font = 2
+ramp-coreload-1-foreground = #aaff77
+ramp-coreload-2 = ▃
+ramp-coreload-2-font = 2
+ramp-coreload-2-foreground = #aaff77
+ramp-coreload-3 = ▄
+ramp-coreload-3-font = 2
+ramp-coreload-3-foreground = #aaff77
+ramp-coreload-4 = ▅
+ramp-coreload-4-font = 2
+ramp-coreload-4-foreground = #fba922
+ramp-coreload-5 = ▆
+ramp-coreload-5-font = 2
+ramp-coreload-5-foreground = #fba922
+ramp-coreload-6 = ▇
+ramp-coreload-6-font = 2
+ramp-coreload-6-foreground = #ff5555
+ramp-coreload-7 = █
+ramp-coreload-7-font = 2
+ramp-coreload-7-foreground = #ff5555
+
+[module/memory]
+type = internal/memory
+format = <label> <bar-used>
+label = Ram
+
+bar-used-width = 30
+bar-used-foreground-0 = #aaff77
+bar-used-foreground-1 = #aaff77
+bar-used-foreground-2 = #fba922
+bar-used-foreground-3 = #ff5555
+bar-used-indicator = |
+bar-used-indicator-font = 6
+bar-used-indicator-foreground = #ff
+bar-used-fill = ─
+bar-used-fill-font = 6
+bar-used-empty = ─
+bar-used-empty-font = 6
+bar-used-empty-foreground = #444444
+
+[module/volume]
+type = internal/volume
+speaker-mixer = Speaker
+headphone-mixer = Headphone
+headphone-id = 9
+
+format-volume = <ramp-volume> <label-volume>
+label-muted = Muted
+label-muted-foreground = #66
+
+ramp-volume-0 = 0
+ramp-volume-1 = 1
+ramp-volume-2 = 2
+ramp-volume-3 = 3
+
+[module/mpd]
+type = internal/mpd
+format-online = <icon-prev> <icon-stop> <toggle> <icon-next> <icon-repeat> <icon-random> <bar-progress> <label-time> <label-song>
+
+icon-play = >
+icon-pause = -
+icon-stop = !
+icon-prev = P
+icon-next = N
+icon-random = R
+icon-repeat = O
+
+toggle-on-foreground = #ff
+toggle-off-foreground = #55
+
+bar-progress-width = 45
+bar-progress-format = %{A4:mpdseek+2: A5:mpdseek-2:}%fill%%indicator%%empty%%{A A}
+bar-progress-indicator = |
+bar-progress-indicator-foreground = #ff
+bar-progress-indicator-font = 3
+bar-progress-fill = ─
+bar-progress-fill-foreground = #bb
+bar-progress-fill-font = 3
+bar-progress-empty = ─
+bar-progress-empty-font = 3
+bar-progress-empty-foreground = #44
